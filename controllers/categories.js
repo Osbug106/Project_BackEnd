@@ -2,7 +2,6 @@ const Categories = require("../models/categories")
 
 module.exports.getAll = (req, res, next) => {
     Categories.find({}, { _id: 1, name: 1,productCount:1,
-        //  L1: 1, L2: 1, L3: 1, L4: 1,
         parent:1 }).then(result => {
         res.json(result)
     })

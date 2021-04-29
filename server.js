@@ -6,6 +6,6 @@ const app = express();
 const routes = require("./routes")
 require("./db").connect();
 const PORT = process.env.PORT
-app.use(cors());
+app.use(cors({origin:'*'}));
 app.use(routes);
 app.listen(PORT,()=>console.log(`listening on port ${PORT}`));
