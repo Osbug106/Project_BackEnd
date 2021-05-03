@@ -1,10 +1,12 @@
 const Categories = require("../models/categories")
 
 module.exports.getAll = (req, res, next) => {
-    Categories.find({}, { _id: 1, name: 1,productCount:1,
-        parent:1 }).then(result => {
+    Categories.find({}, {
+        _id: 1, name: 1, productCount: 1,
+        parent: 1
+    }).then(result => {
         res.json(result)
-    })
+    }).catch(err => res.json(err))
 }
 
 module.exports.getByLevel = (req, res, next) => {
@@ -14,7 +16,7 @@ module.exports.getByLevel = (req, res, next) => {
     }
     Categories.find(Q).then(result => {
         res.json(result)
-    })
+    }).catch(err => res.json(err))
 }
 
 module.exports.getByParent = (req, res, next) => {
@@ -23,5 +25,5 @@ module.exports.getByParent = (req, res, next) => {
     }
     Categories.find(Q).then(result => {
         res.json(result)
-    })
+    }).catch(err => res.json(err))
 }

@@ -8,7 +8,7 @@ const product = new Schema(
         title:String,
         sku:String,
         slug:String,
-        merchant_id:{type:ObjectId},
+        merchant_id:{type:ObjectId,ref:"users"},
         productState:String,
         price:Number,
         msrp:Number,
